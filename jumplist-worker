@@ -55,7 +55,10 @@ optparse = OptionParser.new do |opts|
 	end
 
 	opts.on( '-l', '--list', 'Display the jumplist' ) do
-		puts @jumplist
+		# puts @jumplist
+		@jumplist.each do |key, path|
+			puts "#{key} => #{path}"
+		end
 	end
 
 	opts.on( '-t', '--to TAG', 'Jump to location' ) do |tag|
