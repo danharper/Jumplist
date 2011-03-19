@@ -1,5 +1,19 @@
 # Jumplist - Bookmarks For Bash
 
+## Usage
+Add the current directory to your Jumplist by giving it a key:
+	jump add newproject
+
+You can now jump to it at any time:
+	jump to newproject
+
+Delete a location from your Jumplist with:
+	jump delete newproject
+
+Or view all locations in your Jumplist with:
+	jump list
+
+
 ## Installation
 Copy `jumplist-driver` into your home directory as `.jumplist-driver`
 	cp ./jumplist-driver ~/.jumplist-driver
@@ -15,20 +29,6 @@ Add the following to your `~/.bashrc`:
 
 And create a settings file for Jumplist to use:
 	touch ~/.jumplistrc
-
-
-## Usage
-Add the current directory to your Jumplist by giving it a key:
-	jump add newproject
-
-You can now jump to it at any time:
-	jump to newproject
-
-Delete a location from your Jumplist with:
-	jump delete newproject
-
-Or view all locations in your Jumplist with:
-	jump list
 
 
 ## Advanced Usage
@@ -48,3 +48,9 @@ A full collection of aliases could be:
 	alias jl="jump list"
 	alias ja="jump add"
 	alias jd="jump del"
+
+Ubër fast jumping:
+	ja proj
+	j proj
+	jl
+	jd proj
