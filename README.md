@@ -1,4 +1,5 @@
 # Jumplist - Bookmarks For Bash
+*Beta. Haven't tested on other systems yet, but should work fine :)*
 
 ## Usage
 Add the current directory to your Jumplist by giving it a key:
