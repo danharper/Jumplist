@@ -1,0 +1,38 @@
+#
+# Jumplist Shell Driver
+# ========================================================
+# Don't modify unless you know what you're doing
+#
+# This file defines the 'jump' bash function
+# It looks at the arugments given and works out what to do
+#
+
+jump() {
+	# no args? show help
+	if [ $# -eq 0 ]; then
+		jumplist-worker -h
+
+	# jump list
+	elif [ $1 = "list" ]; then
+		jumplist-worker -l
+
+	# 'jump to ...' or 'jump -t ...'
+	elif [ $1 = "to" ] || [ $1 = "-t" ]; then
+		cd "$(jumplist-worker -t $2)"
+	
+	# 'jump ...' (one arg, doesn't start with a '-')
+	elif [ $# -eq 1 ] && [ ${1:0:1} != - ]; then
+		cd "$(jumplist-worker -t $@)"
+
+	elif [ $1 = "add" ]; then
+		jumplist-worker -a $2
+
+	elif [ $1 = "del" ] || [ $1 = "delete" ]; then
+		jumplis-workert -d $2
+
+	# isn't a 'jump to' command
+	else
+		jumplist-worker $@
+
+	fi
+}

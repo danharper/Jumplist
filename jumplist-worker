@@ -1,0 +1,77 @@
+#!/usr/bin/env ruby
+require 'optparse'
+require 'yaml'
+
+JUMPLIST_FILE = File.expand_path "~/.jumplistrc"
+
+@jumplist = YAML::load_file JUMPLIST_FILE
+@jumplist = {} unless @jumplist
+
+def save
+	File.open JUMPLIST_FILE, 'w' do |file|
+		yaml = YAML::dump @jumplist
+		file << yaml
+	end
+end
+
+banned_tags = %w(
+	list
+	to
+	add
+	del
+	delete
+)
+
+options = {}
+
+optparse = OptionParser.new do |opts|
+
+	opts.on( '-a', '--add TAG', 'Add Current Location' ) do |tag|
+		if @jumplist[tag.to_sym]
+			$stderr.puts "Error: A location already exists with that tag."
+		else
+			if tag[0] != '-'
+				if banned_tags.include? tag
+					$stderr.puts "Error: Tag is banned. #{banned_tags}."
+				else
+					@jumplist[tag.to_sym] = Dir.pwd
+					save
+					puts "Success! You can now jump to this directory with 'jump #{tag}'."
+				end
+			else
+				$stderr.puts "Error: Jump tags may not start with a hyphen ('-')." 
+			end
+		end
+	end
+
+	opts.on( '-d', '--delete TAG', 'Delete Tag' ) do |tag|
+		if @jumplist[tag.to_sym]
+			@jumplist.delete tag.to_sym
+			save
+			puts "Jump location '#{tag}' has been successfully removed."
+		else
+			$stderr.puts "Error: That tag doesn't exist"
+		end
+	end
+
+	opts.on( '-l', '--list', 'Display the jumplist' ) do
+		puts @jumplist
+	end
+
+	opts.on( '-t', '--to TAG', 'Jump to location' ) do |tag|
+		if @jumplist[tag.to_sym]
+			path = @jumplist[tag.to_sym]
+			puts path
+		else
+			$stderr.puts "Error: That jump location does not exist. "\
+			"Try 'jump list' to view your jump locations."
+		end
+	end
+
+  opts.on( '-h', '--help', 'Display this screen' ) do
+    puts opts
+    exit
+  end
+end
+
+optparse.parse!
