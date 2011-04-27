@@ -57,7 +57,7 @@ A full collection of aliases could be:
 
 Ubër fast jumping:
 
-	ja proj
-	j proj
-	jl
-	jd proj
+	ja proj  # Add current directory as 'proj'
+	j proj   # At any other time, jump to the directory tagged 'proj'
+	jl       # View all directories in your jumplist
+	jd proj  # Delete the directory tagged 'proj' from your jumplist
