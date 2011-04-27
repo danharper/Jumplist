@@ -2,17 +2,13 @@
 *Beta. Haven't tested on other systems yet, but should work fine :)*
 
 ## Usage
-Add the current directory to your Jumplist by giving it a key:
-	jump add newproject
+Add the current directory to your Jumplist by giving it a key: `jump add newproject`
 
-You can now jump to it at any time:
-	jump to newproject
+You can now jump to it at any time: `jump to newproject`
 
-Delete a location from your Jumplist with:
-	jump delete newproject
+Delete a location from your Jumplist with: `jump delete newproject`
 
-Or view all locations in your Jumplist with:
-	jump list
+Or view all locations in your Jumplist with: `jump list`
 
 
 ## Installation
