@@ -28,7 +28,7 @@ jump() {
 		jumplist-worker -a $2
 
 	elif [ $1 = "del" ] || [ $1 = "delete" ]; then
-		jumplis-workert -d $2
+		jumplist-worker -d $2
 
 	# isn't a 'jump to' command
 	else
