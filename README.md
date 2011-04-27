@@ -13,6 +13,7 @@ Or view all locations in your Jumplist with: `jump list`
 
 ## Installation
 Copy `jumplist-driver` into your home directory as `.jumplist-driver`
+
 	cp ./jumplist-driver ~/.jumplist-driver
 
 Copy `jumplist-worker` to somewhere in your PATH (eg. `/usr/local/bin/`).
