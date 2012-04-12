@@ -1,0 +1,123 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Jumplist by danharper</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+
+      <div id="header">
+        <nav>
+          <li class="fork"><a href="https://github.com/danharper/Jumplist">Fork On GitHub</a></li>
+          <li class="downloads"><a href="https://github.com/danharper/Jumplist/zipball/master">ZIP</a></li>
+          <li class="downloads"><a href="https://github.com/danharper/Jumplist/tarball/master">TAR</a></li>
+          <li class="title">DOWNLOADS</li>
+        </nav>
+      </div><!-- end header -->
+
+    <div class="wrapper">
+
+      <section>
+        <div id="title">
+          <h1>Jumplist</h1>
+          <p>A bookmarking script for the Bash Shell.</p>
+          <hr>
+          <span class="credits left">Project maintained by <a href="https://github.com/danharper">danharper</a></span>
+          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="http://twitter.com/#!/michigangraham">mattgraham</a></span>
+        </div>
+
+        <h1>Jumplist - Bookmarks For Bash</h1>
+
+<p><em>Beta. Haven't tested on other systems yet, but should work fine :)</em></p>
+
+<h2>Usage</h2>
+
+<p>Add the current directory to your Jumplist by giving it a key: <code>jump add newproject</code></p>
+
+<p>You can now jump to it at any time: <code>jump to newproject</code></p>
+
+<p>Delete a location from your Jumplist with: <code>jump delete newproject</code></p>
+
+<p>Or view all locations in your Jumplist with: <code>jump list</code></p>
+
+<h2>Installation</h2>
+
+<p>Copy <code>jumplist-driver</code> into your home directory as <code>.jumplist-driver</code>:</p>
+
+<pre><code>cp ./jumplist-driver ~/.jumplist-driver
+</code></pre>
+
+<p>Copy <code>jumplist-worker</code> to somewhere in your PATH (eg. <code>/usr/local/bin/</code>):</p>
+
+<pre><code>cp ./jumplist-worker /usr/local/bin/jumplist-worker
+</code></pre>
+
+<p>And give it execute permissions:</p>
+
+<pre><code>chmod +x /usr/local/bin/jumplist-worker
+</code></pre>
+
+<p>Add the following to your <code>~/.bashrc</code>:</p>
+
+<pre><code>source ~/.jumplist-driver
+</code></pre>
+
+<p>And create a settings file for Jumplist to use:</p>
+
+<pre><code>touch ~/.jumplistrc
+</code></pre>
+
+<h2>Advanced Usage</h2>
+
+<p>A shorter syntax for jumping to a directory is:</p>
+
+<pre><code>jump newproject
+</code></pre>
+
+<p>Is typing <code>jump</code> too long? Add the following to your <code>~/.bashrc</code>:</p>
+
+<pre><code>alias j="jump"
+</code></pre>
+
+<p>You can now:</p>
+
+<pre><code>j newproject
+j add secondproject
+j list
+</code></pre>
+
+<p>A full collection of aliases could be:</p>
+
+<pre><code>alias j="jump"
+alias jl="jump list"
+alias ja="jump add"
+alias jd="jump del"
+</code></pre>
+
+<p>Ubër fast jumping:</p>
+
+<pre><code>ja proj  # Add current directory as 'proj'
+j proj   # At any other time, jump to the directory tagged 'proj'
+jl       # View all directories in your jumplist
+jd proj  # Delete the directory tagged 'proj' from your jumplist
+</code></pre>
+      </section>
+
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><!--<![endif]-->
+    
+  </body>
+</html>
